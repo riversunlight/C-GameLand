@@ -35,6 +35,6 @@ zipファイルを展開して、遊びたいゲームのexeファイルをダ�
 `git clone https://github.com/riversunlight/C-GameLandByRSL`
 とコマンドを打って実行  
 変更されたものに更新する時には  
-`git clone origin master`とコマンドを打って実行する
+`git pull origin master`とコマンドを打って実行する
 
 
