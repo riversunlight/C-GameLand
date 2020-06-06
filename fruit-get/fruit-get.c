@@ -14,6 +14,7 @@ int main(void) {
 	int score = 0;
 	int op = 0;
 	int flag = 0;
+	int e_o_s = 0;
 
 	/*オープニング*/
 	opening();
