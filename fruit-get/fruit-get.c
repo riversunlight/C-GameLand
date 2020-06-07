@@ -14,10 +14,23 @@ int main(void) {
 	int score = 0;
 	int op = 0;
 	int flag = 0;
-	int e_o_s = 0;
+	int e_o_s = 1;
+	int open;
+	int op_flag = 0;
 
 	/*オープニング*/
-	opening();
+	do {
+		int num;
+		open = opening(op_flag);
+		op_flag = 0;
+		num = open / 100;
+		switch (num) {
+		case 1:
+			e_o_s = open % 100;
+			op_flag = 1;
+			break;
+		}
+	} while (open != 0);
 	/*オープニングここまで*/
 
 	//メインループ
@@ -46,7 +59,7 @@ int main(void) {
 				score = fruit_get(score, cx);
 				
 				/*果物生成*/
-				fruit_gene();
+				fruit_gene(e_o_s);
 				/*果物生成ここまで*/
 			}
 

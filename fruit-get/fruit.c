@@ -51,10 +51,23 @@ int fruit_get(int score, int x) {
 	return score;
 }
 
-void fruit_gene(void) {
+void fruit_gene(int e_o_s) {
 	int r;
+	int gene_div = 1000;
+
+	//Šm—¦•ÏX
+	switch (e_o_s) {
+	case 0:
+		gene_div = 500;
+		break;
+	case 2:
+		gene_div = 1500;
+		break;
+	}
+
+	//¶¬
 	for (int i = 0; i < SIZE; i++) {
-		r = rand() % 2000;
+		r = rand() % gene_div;
 		if (r >= 0 && r <= 15)
 			kudamono[i][0] = ORANGE;
 		else if (r >= 16 && r <= 24)

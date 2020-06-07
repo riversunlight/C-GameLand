@@ -20,40 +20,82 @@ void rule(void) {
 	}
 }
 
-void option(void) {
+int item_easy(void) {
 	int key;
 	int flag = 1;
 	int op = 0;
-	do {
-		while (flag) {
-			printf("=====OPTION=====\n");
-			printf("%sアイテムの出やすさ\n", (op == 0) ? "◎" : "  ");
-			printf("%s戻る\n", (op == 1) ? "◎" : "  ");
-			system("cls");
-			if (_kbhit()) {
-				key = _getch();
-				switch (key) {
-				case 'w':
-					op--;
-					break;
-				case 's':
-					op++;
-					break;
-				case ENTER:
-					flag = 0;
-					break;
-				}
-				op = (op + 2) % 2;
+	while (flag) {
+		printf("===アイテムの出やすさ===\n");
+		printf("%s出やすい\n", (op == 0)? "◎" : "  ");
+		printf("%s普通\n", (op == 1) ? "◎" : "  ");
+		printf("%s出にくい\n", (op == 2) ? "◎" : "  ");
+		system("cls");
+		if (_kbhit()) {
+			key = _getch();
+			switch (key) {
+			case 'w':
+				op--;
+				break;
+			case 's':
+				op++;
+				break;
+			case ENTER:
+				flag = 0;
+				break;
 			}
+			op = (op + 3) % 3;
 		}
-		flag = 1;
-	} while (op != 1);
+	}
+
+	return 100 + op;
 }
 
-void opening(void) {
+int option(void) {
+	int key;
+	int flag = 1;
+	int num = 1;
+	int op = 0;
+	while (flag) {
+		printf("=====OPTION=====\n");
+		printf("%sアイテムの出やすさ\n", (op == 0) ? "◎" : "  ");
+		printf("%s戻る\n", (op == 1) ? "◎" : "  ");
+		system("cls");
+		if (_kbhit()) {
+			key = _getch();
+			switch (key) {
+			case 'w':
+				op--;
+				break;
+			case 's':
+				op++;
+				break;
+			case ENTER:
+				flag = 0;
+				break;
+			}
+			op = (op + 2) % 2;
+		}
+	}
+
+	switch (op) {
+	case 0:
+		num = item_easy();
+		break;
+	}
+
+	return num;
+}
+
+int opening(int cho) {
 	int flag = 1;
 	int op = 0;
 	int key;
+	int num = 0;
+
+	if (cho == 1) {
+		flag = 0;
+		op = 1;
+	}
 
 	do {
 		while (flag) {
@@ -82,7 +124,7 @@ void opening(void) {
 		}
 		switch (op) {
 		case 1:
-			option();
+			num = option();
 			flag = 1;
 			break;
 		case 2:
@@ -90,7 +132,9 @@ void opening(void) {
 			flag = 1;
 			break;
 		}
-	} while (op);
+	} while (op == 2);
+
+	return num;
 }
 
 int ending(int op) {
