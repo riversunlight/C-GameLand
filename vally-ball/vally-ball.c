@@ -1,7 +1,6 @@
-//j1902 ˆÀ•”Ÿäl@t‹x‚İ‰Û‘è
 
-/*-----------1‘Î1ƒ{[ƒ‹ƒoƒgƒ‹ƒQ[ƒ€-----------*/
-/*‘S‰æ–Êƒ‚[ƒh„§*/
+/*-----------1ï¿½ï¿½1ï¿½{ï¿½[ï¿½ï¿½ï¿½oï¿½gï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½-----------*/
+/*ï¿½Sï¿½ï¿½Êƒï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½*/
 #pragma warning(disable:4996)
 
 #include <stdio.h>
@@ -15,118 +14,118 @@
 int ran(short int x, short int y);
 
 int main(void) {
-	short int px = 4, py = 14;                //ƒvƒŒƒCƒ„[‚ÌÀ•W
-	short int ex = 18, ey = 14;               //‘Šè‚ÌÀ•W
-	short int bx = 0, by = 0;                 //ƒ{[ƒ‹‚ÌÀ•W
-	short int b_dir = 0;                      //ƒ{[ƒ‹‚ÌˆÚ“®•ûŒü
-	short int point_p = 0, point_e = 0;       //ƒ|ƒCƒ“ƒg
-	short int MAP_X = 25, MAP_Y = 25;         //ƒ}ƒbƒv‚ÌL‚³
-	short int key;                            //“ü—Í‚³‚ê‚½‚ğ‹L‰¯
-	short int win_num = 5;                    //Ÿ—˜“¾“_
-	short int x, y;                           //‰æ–Ê•\¦
-	short int op = 0, op_o = 0, op_opt = 0;   //ƒI[ƒvƒjƒ“ƒO‚Ì‘I‘ğ
-	short int com, man;                       //‚¶‚á‚ñ‚¯‚ñ‚Ìè
-	short int diff;                           //Ÿ”s”»’è
-	short int p;                              //ˆÚ“®
-	short int surve = 1;                      //ƒT[ƒu—p‚Ìƒtƒ‰ƒO(1‚ªƒT[ƒu‘Ò‹@)
-	short int surve_right = 0;                //ƒT[ƒuŒ (0‚ª©•ªA1‚ª‚ ‚¢‚Ä)
-	short int surve_right_p;                  //ƒT[ƒuŒ (•\¦—p)
-	short int sp_p = 0, sp_e = 0;             //ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg
-	short int sp_do_p = 0, sp_do_e = 0;       //ƒXƒyƒVƒƒƒ‹‚ğg‚¤‚©‚Ç‚¤‚©
-	short int sp_max = 5;                     //ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚ÌÅ‘å’l
-	short int sp_kind_p = 1, sp_kind_e = 1;   //ƒXƒyƒVƒƒƒ‹ƒXƒpƒCƒN‚Ìí—Ş(0 => ”š‘¬ -Œõ- 1 => ¸–§ -—- 3=> ˜— -•‘-)
-	short int sp_kind = 0;                    //ƒXƒyƒVƒƒƒ‹ƒXƒpƒCƒN‚Ìí—Ş
-	short int sp_2_sel = 0;                   //¸–§‚Ì‘I‘ğ
-	short int seller;                         //¸–§‚ÅÀ•W‚ğ‘I‚Ô‚Ù‚¤(1‚ª©•ª)
-	short int kakuran_time;                   //˜—‚ğ‘Å‚Á‚½
-	short int i, j;                           //for•ª—p
-	short int jumping_p = 0;                  //ƒWƒƒƒ“ƒv—p‚Ìƒtƒ‰ƒO(1‚ªƒWƒƒƒ“ƒv’†)
-	short int jumping_e = 0;                  //ƒWƒƒƒ“ƒv—p‚Ìƒtƒ‰ƒO(1‚ªƒWƒƒƒ“ƒv’†)
-	short int toss_p = 0, toss_p_print = 0;   //©•ª‚ÌƒgƒX—p‚Ìƒtƒ‰ƒO(1‚ªƒgƒX’†)
-	short int toss_p_time;                    //©•ª‚ÌƒgƒX‚µ‚½ŠÔ
-	short int toss_e = 0, toss_e_print = 0;   //‘Šè‚ÌƒgƒX—p‚Ìƒtƒ‰ƒO(1‚ªƒgƒX’†)
-	short int toss_e_time;                    //‘Šè‚ÌƒgƒX‚³‚ê‚½ŠÔ
-	short int spaik = 0;                      //ƒXƒpƒCƒN—p‚Ìƒtƒ‰ƒO(1‚ªƒXƒpƒCƒN’†)
-	short int spaik_time;                     //ƒXƒpƒCƒN‚ğ‘Å‚Á‚½ŠÔ
-	short int spaik_e = 0, spaik_e_time;      //‘Šè‚ÌƒXƒpƒCƒN
-	short int spaik_p_print = 0;              //©•ª‚ÌƒXƒpƒCƒN‚Ì•\¦
-	short int spaik_e_print = 0;              //‘Šè‚ÌƒXƒpƒCƒN‚Ì•\¦
-	short int s_g_e = 0;                      //‘Šè‚ªƒXƒpƒCƒN‚µ‚És‚­
-	short int finish = 0;                     //I‚í‚Á‚½(1‚ªI—¹)
-	short int finish_time;                    //°‚É‚Â‚¢‚½‚Æ‚«
-	short int jakka;                          //‘Šè‚ğã‚­‚·‚é
-	short int play_none = 0;                  //ƒvƒŒƒC‚ª‘±‚¢‚Ä‚¢‚é‚©(1‚ª‚Â‚Ã‚¢‚Ä‚¢‚È‚¢)
-	short int time_count = 0;                 //ŠÔ‚ÌŒv‘ª
-	short int end = 0;                        //ƒGƒ“ƒfƒBƒ“ƒO‚Ìí—Ş 
-	short int con_fin = 0;                    //‘±‚¯‚é‚©I‚í‚é‚©(I‚í‚éê‡‚ÍƒXƒ^[ƒg‰æ–Ê‚Ö)
-	short int rep = 1;                        //ƒŠƒvƒŒƒC
-	short int rep_start;                      //ƒŠƒvƒŒƒC‚ÌŠJn
-	short int han_d = 0, han_n = 0;           //ƒnƒ“ƒf‚Ì‚à‚ç‚¤‘¤‚Æ“_”
-	short int randamu;                        //—”‚ğ•Û‘¶‚·‚é•Ï”
-	short int s_d;                            //ƒT[ƒu‚ÌŒˆ‚ß•û
-	short int s_r;                            //ƒT[ƒuŒˆ‚ß(—”—p)
-	short int deuce = 0;                      //ƒfƒ…[ƒX(0 =>@‚ ‚è)
-	short int de_pri = 0;                     //ƒfƒ…[ƒX‚Ì•\¦
-	short int de_adv = 0;                     //ƒfƒ…[ƒX‚ÅƒAƒhƒoƒ“ƒe[ƒW‚ª‚ ‚é•û(1 => ƒvƒŒƒCƒ„1@2 => ƒvƒŒƒCƒ„2)
+	short int px = 4, py = 14;                //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìï¿½ï¿½W
+	short int ex = 18, ey = 14;               //ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½W
+	short int bx = 0, by = 0;                 //ï¿½{ï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½W
+	short int b_dir = 0;                      //ï¿½{ï¿½[ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½
+	short int point_p = 0, point_e = 0;       //ï¿½|ï¿½Cï¿½ï¿½ï¿½g
+	short int MAP_X = 25, MAP_Y = 25;         //ï¿½}ï¿½bï¿½vï¿½ÌLï¿½ï¿½
+	short int key;                            //ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½
+	short int win_num = 5;                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_
+	short int x, y;                           //ï¿½ï¿½Ê•\ï¿½ï¿½
+	short int op = 0, op_o = 0, op_opt = 0;   //ï¿½Iï¿½[ï¿½vï¿½jï¿½ï¿½ï¿½Oï¿½Ì‘Iï¿½ï¿½
+	short int com, man;                       //ï¿½ï¿½ï¿½ï¿½ñ‚¯‚ï¿½Ìï¿½
+	short int diff;                           //ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
+	short int p;                              //ï¿½Ú“ï¿½
+	short int surve = 1;                      //ï¿½Tï¿½[ï¿½uï¿½pï¿½Ìƒtï¿½ï¿½ï¿½O(1ï¿½ï¿½ï¿½Tï¿½[ï¿½uï¿½Ò‹@)
+	short int surve_right = 0;                //ï¿½Tï¿½[ï¿½uï¿½ï¿½(0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½A1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	short int surve_right_p;                  //ï¿½Tï¿½[ï¿½uï¿½ï¿½(ï¿½\ï¿½ï¿½ï¿½p)
+	short int sp_p = 0, sp_e = 0;             //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½g
+	short int sp_do_p = 0, sp_do_e = 0;       //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½
+	short int sp_max = 5;                     //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ÌÅ‘ï¿½l
+	short int sp_kind_p = 1, sp_kind_e = 1;   //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½pï¿½Cï¿½Nï¿½Ìï¿½ï¿½(0 => ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½- 1 => ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½- 3=> ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-)
+	short int sp_kind = 0;                    //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½pï¿½Cï¿½Nï¿½Ìï¿½ï¿½
+	short int sp_2_sel = 0;                   //ï¿½ï¿½ï¿½ï¿½ï¿½Ì‘Iï¿½ï¿½
+	short int seller;                         //ï¿½ï¿½ï¿½ï¿½ï¿½Åï¿½ï¿½Wï¿½ï¿½Iï¿½Ô‚Ù‚ï¿½(1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	short int kakuran_time;                   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½
+	short int i, j;                           //forï¿½ï¿½ï¿½p
+	short int jumping_p = 0;                  //ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½pï¿½Ìƒtï¿½ï¿½ï¿½O(1ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½)
+	short int jumping_e = 0;                  //ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½pï¿½Ìƒtï¿½ï¿½ï¿½O(1ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½)
+	short int toss_p = 0, toss_p_print = 0;   //ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒgï¿½Xï¿½pï¿½Ìƒtï¿½ï¿½ï¿½O(1ï¿½ï¿½ï¿½gï¿½Xï¿½ï¿½)
+	short int toss_p_time;                    //ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒgï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	short int toss_e = 0, toss_e_print = 0;   //ï¿½ï¿½ï¿½ï¿½Ìƒgï¿½Xï¿½pï¿½Ìƒtï¿½ï¿½ï¿½O(1ï¿½ï¿½ï¿½gï¿½Xï¿½ï¿½)
+	short int toss_e_time;                    //ï¿½ï¿½ï¿½ï¿½Ìƒgï¿½Xï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½ï¿½
+	short int spaik = 0;                      //ï¿½Xï¿½pï¿½Cï¿½Nï¿½pï¿½Ìƒtï¿½ï¿½ï¿½O(1ï¿½ï¿½ï¿½Xï¿½pï¿½Cï¿½Nï¿½ï¿½)
+	short int spaik_time;                     //ï¿½Xï¿½pï¿½Cï¿½Nï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	short int spaik_e = 0, spaik_e_time;      //ï¿½ï¿½ï¿½ï¿½ÌƒXï¿½pï¿½Cï¿½N
+	short int spaik_p_print = 0;              //ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒXï¿½pï¿½Cï¿½Nï¿½Ì•\ï¿½ï¿½
+	short int spaik_e_print = 0;              //ï¿½ï¿½ï¿½ï¿½ÌƒXï¿½pï¿½Cï¿½Nï¿½Ì•\ï¿½ï¿½
+	short int s_g_e = 0;                      //ï¿½ï¿½ï¿½è‚ªï¿½Xï¿½pï¿½Cï¿½Nï¿½ï¿½ï¿½Ésï¿½ï¿½
+	short int finish = 0;                     //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(1ï¿½ï¿½ï¿½Iï¿½ï¿½)
+	short int finish_time;                    //ï¿½ï¿½ï¿½É‚Â‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½
+	short int jakka;                          //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã‚­ï¿½ï¿½ï¿½ï¿½
+	short int play_none = 0;                  //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©(1ï¿½ï¿½ï¿½Â‚Ã‚ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½)
+	short int time_count = 0;                 //ï¿½ï¿½ï¿½Ô‚ÌŒvï¿½ï¿½
+	short int end = 0;                        //ï¿½Gï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Oï¿½Ìï¿½ï¿½ 
+	short int con_fin = 0;                    //ï¿½ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Iï¿½ï¿½é‚©(ï¿½Iï¿½ï¿½ï¿½ê‡ï¿½ÍƒXï¿½^ï¿½[ï¿½gï¿½ï¿½Ê‚ï¿½)
+	short int rep = 1;                        //ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C
+	short int rep_start;                      //ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½ÌŠJï¿½n
+	short int han_d = 0, han_n = 0;           //ï¿½nï¿½ï¿½ï¿½fï¿½Ì‚ï¿½ï¿½ç‚¤ï¿½ï¿½ï¿½Æ“_ï¿½ï¿½
+	short int randamu;                        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Ïï¿½
+	short int s_d;                            //ï¿½Tï¿½[ï¿½uï¿½ÌŒï¿½ï¿½ß•ï¿½
+	short int s_r;                            //ï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½p)
+	short int deuce = 0;                      //ï¿½fï¿½ï¿½ï¿½[ï¿½X(0 =>ï¿½@ï¿½ï¿½ï¿½ï¿½)
+	short int de_pri = 0;                     //ï¿½fï¿½ï¿½ï¿½[ï¿½Xï¿½Ì•\ï¿½ï¿½
+	short int de_adv = 0;                     //ï¿½fï¿½ï¿½ï¿½[ï¿½Xï¿½ÅƒAï¿½hï¿½oï¿½ï¿½ï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(1 => ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½1ï¿½@2 => ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½2)
  	
-	char name1[21] = "‚ ‚È‚½";                //–¼‘O
-	char name2[21] = "‚ ‚¢‚Ä";                //–¼‘O
+	char name1[21] = "ï¿½ï¿½ï¿½È‚ï¿½";                //ï¿½ï¿½ï¿½O
+	char name2[21] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";                //ï¿½ï¿½ï¿½O
 
-	int hist_px[1000];                //px‚Ì‹OÕ
-	int hist_py[1000];                //py‚Ì‹OÕ
-	int hist_ex[1000];                //ex‚Ì‹OÕ
-	int hist_ey[1000];                //ey‚Ì‹OÕ
-	int hist_bx[1000];                //bx‚Ì‹OÕ
-    int hist_by[1000];                //by‚Ì‹OÕ
-	int hist_po_p[1000];              //©•ª‚Ìƒ|ƒCƒ“ƒg
-	int hist_po_e[1000];              //‘Šè‚Ìƒ|ƒCƒ“ƒg
-	int hist_toss_p[1000];            //©•ª‚ÌƒgƒX‚Ì•\¦‚Ì‹L‰¯
-	int hist_toss_e[1000];            //‘Šè‚ÌƒgƒX‚Ì•\¦
-	int hist_spaik_p[1000];           //ƒXƒpƒCƒN‚Ì•\¦
-	int hist_spaik_e[1000];           //ƒXƒpƒCƒN‚Ì•\¦
-	int hist_sp_p[1000];              //ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚Ì‹L‰¯(©•ª)
-	int hist_sp_do_p[1000];           //ƒXƒyƒVƒƒƒ‹‚Ìg—p(©•ª)
-	int hist_sp_do_e[1000];           //ƒXƒyƒVƒƒƒ‹‚Ìg—p(‘Šè)
-	int hist_sp_e[1000];              //ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚Ì‹L‰¯(‘Šè)
-	int hist_sp_kind[1000];           //ƒXƒyƒVƒƒƒ‹‹Z‚Ìí—Ş
-	int hist_de_pri[1000];            //ƒfƒ…[ƒX‚Ì•\¦
-	int hist_de_adv[1000];            //ƒfƒ…[ƒX‚Ìó‘Ô
+	int hist_px[1000];                //pxï¿½Ì‹Oï¿½ï¿½
+	int hist_py[1000];                //pyï¿½Ì‹Oï¿½ï¿½
+	int hist_ex[1000];                //exï¿½Ì‹Oï¿½ï¿½
+	int hist_ey[1000];                //eyï¿½Ì‹Oï¿½ï¿½
+	int hist_bx[1000];                //bxï¿½Ì‹Oï¿½ï¿½
+    int hist_by[1000];                //byï¿½Ì‹Oï¿½ï¿½
+	int hist_po_p[1000];              //ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½g
+	int hist_po_e[1000];              //ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½g
+	int hist_toss_p[1000];            //ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒgï¿½Xï¿½Ì•\ï¿½ï¿½ï¿½Ì‹Lï¿½ï¿½
+	int hist_toss_e[1000];            //ï¿½ï¿½ï¿½ï¿½Ìƒgï¿½Xï¿½Ì•\ï¿½ï¿½
+	int hist_spaik_p[1000];           //ï¿½Xï¿½pï¿½Cï¿½Nï¿½Ì•\ï¿½ï¿½
+	int hist_spaik_e[1000];           //ï¿½Xï¿½pï¿½Cï¿½Nï¿½Ì•\ï¿½ï¿½
+	int hist_sp_p[1000];              //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Ì‹Lï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	int hist_sp_do_p[1000];           //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìgï¿½p(ï¿½ï¿½ï¿½ï¿½)
+	int hist_sp_do_e[1000];           //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìgï¿½p(ï¿½ï¿½ï¿½ï¿½)
+	int hist_sp_e[1000];              //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Ì‹Lï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	int hist_sp_kind[1000];           //ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½Ìï¿½ï¿½
+	int hist_de_pri[1000];            //ï¿½fï¿½ï¿½ï¿½[ï¿½Xï¿½Ì•\ï¿½ï¿½
+	int hist_de_adv[1000];            //ï¿½fï¿½ï¿½ï¿½[ï¿½Xï¿½Ìï¿½ï¿½
 
-	double v_p = 0, v_b = 0, v_e = 0;   //—‰º
-	double px_d, py_d;                  //ƒvƒŒƒCƒ„[‚ÌÀ•W(doubleŒ^)
-	double ex_d, ey_d;                  //‘Šè‚ÌÀ•W(doubleŒ^)
-	double by_d;                        //ƒ{[ƒ‹‚ÌÀ•W(doubleŒ^)
+	double v_p = 0, v_b = 0, v_e = 0;   //ï¿½ï¿½ï¿½ï¿½
+	double px_d, py_d;                  //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìï¿½ï¿½W(doubleï¿½^)
+	double ex_d, ey_d;                  //ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½W(doubleï¿½^)
+	double by_d;                        //ï¿½{ï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½W(doubleï¿½^)
 
-	//‚±‚±‚©‚çÀ‘•
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	do {
-		//ƒI[ƒvƒjƒ“ƒO
+		//ï¿½Iï¿½[ï¿½vï¿½jï¿½ï¿½ï¿½O
 		do {
 			while (1) {
 				end = 0;
-				printf("-----------1‘Î1ƒ{[ƒ‹ƒoƒgƒ‹ƒQ[ƒ€(‘S‰æ–Ê„§)-----------\n\n");
+				printf("-----------1ï¿½ï¿½1ï¿½{ï¿½[ï¿½ï¿½ï¿½oï¿½gï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½(ï¿½Sï¿½ï¿½Êï¿½ï¿½ï¿½)-----------\n\n");
 
-				//‘I‘ğ‚Ì•\¦
+				//ï¿½Iï¿½ï¿½ï¿½Ì•\ï¿½ï¿½
 				op_o = 0;
 
 				switch (op) {
 				case 0:
-					printf("  SINGLE    MULTI    OPTION    RULES      END");
+					printf("  ï¿½ï¿½SINGLE    MULTI    OPTION    RULES      END");
 					break;
 				case 1:
-					printf("    SINGLE  MULTI    OPTION    RULES      END");
+					printf("    SINGLE  ï¿½ï¿½MULTI    OPTION    RULES      END");
 					break;
 				case 2:
-					printf("    SINGLE    MULTI  OPTION    RULES      END");
+					printf("    SINGLE    MULTI  ï¿½ï¿½OPTION    RULES      END");
 					break;
 				case 3:
-					printf("    SINGLE    MULTI    OPTION  RULES      END");
+					printf("    SINGLE    MULTI    OPTION  ï¿½ï¿½RULES      END");
 					break;
 				case 4:
-					printf("    SINGLE    MULTI    OPTION    RULES    END");
+					printf("    SINGLE    MULTI    OPTION    RULES    ï¿½ï¿½END");
 					break;
 				}
 
-				//‘I‘ğ‚Ì”»’f
+				//ï¿½Iï¿½ï¿½ï¿½Ì”ï¿½ï¿½f
 				if (_kbhit()) {
 					op_o = _getch();
 					switch (op_o) {
@@ -143,14 +142,14 @@ int main(void) {
 					system("cls");
 					break;
 				}
-				//’l‚Ì’²®
+				//ï¿½lï¿½Ì’ï¿½ï¿½ï¿½
 				op = (op + 5) % 5;
 
 				system("cls");
 			}
 
 			switch (op) {
-			//İ’è
+			//ï¿½İ’ï¿½
 			case 2:
 				do {
 					op_opt = 0;
@@ -174,170 +173,170 @@ int main(void) {
 						switch (op_opt) {
 						case 0:
 							system("cls");
-							printf("=====İ’è=====\n");
-							printf("ƒvƒŒƒCƒ„–¼\b\n");
-							printf("  Ÿ—˜“¾“_\n");
-							printf("  ƒXƒyƒVƒƒƒ‹\n");
-							printf("  ƒŠƒvƒŒƒC\n");
-							printf("  ƒnƒ“ƒf\n");
-							printf("  ƒfƒ…[ƒX\n");
-							printf("  –ß‚é\n");
+							printf("=====ï¿½İ’ï¿½=====\n");
+							printf("ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½\b\n");
+							printf("  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_\n");
+							printf("  ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½\n");
+							printf("  ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C\n");
+							printf("  ï¿½nï¿½ï¿½ï¿½f\n");
+							printf("  ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
+							printf("  ï¿½ß‚ï¿½\n");
 							break;
 						case 1:
 							system("cls");
-							printf("=====İ’è=====\n");
-							printf("  ƒvƒŒƒCƒ„–¼\b\n");
-							printf("Ÿ—˜“¾“_\n");
-							printf("  ƒXƒyƒVƒƒƒ‹\n");
-							printf("  ƒŠƒvƒŒƒC\n");
-							printf("  ƒnƒ“ƒf\n");
-							printf("  ƒfƒ…[ƒX\n");
-							printf("  –ß‚é\n");
+							printf("=====ï¿½İ’ï¿½=====\n");
+							printf("  ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½\b\n");
+							printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_\n");
+							printf("  ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½\n");
+							printf("  ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C\n");
+							printf("  ï¿½nï¿½ï¿½ï¿½f\n");
+							printf("  ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
+							printf("  ï¿½ß‚ï¿½\n");
 							break;
 						case 2:
 							system("cls");
-							printf("=====İ’è=====\n");
-							printf("  ƒvƒŒƒCƒ„–¼\b\n");
-							printf("  Ÿ—˜“¾“_\n");
-							printf("ƒXƒyƒVƒƒƒ‹\n");
-							printf("  ƒŠƒvƒŒƒC\n");
-							printf("  ƒnƒ“ƒf\n");
-							printf("  ƒfƒ…[ƒX\n");
-							printf("  –ß‚é\n");
+							printf("=====ï¿½İ’ï¿½=====\n");
+							printf("  ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½\b\n");
+							printf("  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_\n");
+							printf("ï¿½ï¿½ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½\n");
+							printf("  ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C\n");
+							printf("  ï¿½nï¿½ï¿½ï¿½f\n");
+							printf("  ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
+							printf("  ï¿½ß‚ï¿½\n");
 							break;
 						case 3:
 							system("cls");
-							printf("=====İ’è=====\n");
-							printf("  ƒvƒŒƒCƒ„–¼\b\n");
-							printf("  Ÿ—˜“¾“_\n");
-							printf("  ƒXƒyƒVƒƒƒ‹\n");
-							printf("ƒŠƒvƒŒƒC\n");
-							printf("  ƒnƒ“ƒf\n");
-							printf("  ƒfƒ…[ƒX\n");
-							printf("  –ß‚é\n");
+							printf("=====ï¿½İ’ï¿½=====\n");
+							printf("  ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½\b\n");
+							printf("  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_\n");
+							printf("  ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½\n");
+							printf("ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C\n");
+							printf("  ï¿½nï¿½ï¿½ï¿½f\n");
+							printf("  ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
+							printf("  ï¿½ß‚ï¿½\n");
 							break;
 						case 4:
 							system("cls");
-							printf("=====İ’è=====\n");
-							printf("  ƒvƒŒƒCƒ„–¼\b\n");
-							printf("  Ÿ—˜“¾“_\n");
-							printf("  ƒXƒyƒVƒƒƒ‹\n");
-							printf("  ƒŠƒvƒŒƒC\n");
-							printf("ƒnƒ“ƒf\n");
-							printf("  ƒfƒ…[ƒX\n");
-							printf("  –ß‚é\n");
+							printf("=====ï¿½İ’ï¿½=====\n");
+							printf("  ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½\b\n");
+							printf("  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_\n");
+							printf("  ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½\n");
+							printf("  ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C\n");
+							printf("ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½f\n");
+							printf("  ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
+							printf("  ï¿½ß‚ï¿½\n");
 							break;
 						case 5:
 							system("cls");
-							printf("=====İ’è=====\n");
-							printf("  ƒvƒŒƒCƒ„–¼\b\n");
-							printf("  Ÿ—˜“¾“_\n");
-							printf("  ƒXƒyƒVƒƒƒ‹\n");
-							printf("  ƒŠƒvƒŒƒC\n");
-							printf("  ƒnƒ“ƒf\n");
-							printf("ƒfƒ…[ƒX\n");
-							printf("  –ß‚é\n");
+							printf("=====ï¿½İ’ï¿½=====\n");
+							printf("  ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½\b\n");
+							printf("  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_\n");
+							printf("  ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½\n");
+							printf("  ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C\n");
+							printf("  ï¿½nï¿½ï¿½ï¿½f\n");
+							printf("ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
+							printf("  ï¿½ß‚ï¿½\n");
 							break;
 						case 6:
 							system("cls");
-							printf("=====İ’è=====\n");
-							printf("  ƒvƒŒƒCƒ„–¼\b\n");
-							printf("  Ÿ—˜“¾“_\n");
-							printf("  ƒXƒyƒVƒƒƒ‹\n");
-							printf("  ƒŠƒvƒŒƒC\n");
-							printf("  ƒnƒ“ƒf\n");
-							printf("  ƒfƒ…[ƒX\n");
-							printf("–ß‚é\n");
+							printf("=====ï¿½İ’ï¿½=====\n");
+							printf("  ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½\b\n");
+							printf("  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_\n");
+							printf("  ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½\n");
+							printf("  ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C\n");
+							printf("  ï¿½nï¿½ï¿½ï¿½f\n");
+							printf("  ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
+							printf("ï¿½ï¿½ï¿½ß‚ï¿½\n");
 							break;
 						}
 					}
 
 					system("cls");
 
-					printf("=====İ’è=====\n");
+					printf("=====ï¿½İ’ï¿½=====\n");
 					switch (op_opt) {
 					case 0:
-						printf("ƒvƒŒƒCƒ„–¼(1)‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B(10•¶šˆÈ“à)\n");
+						printf("ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½(1)ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B(10ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½)\n");
 						scanf_s("%s", name1, 11);
-						printf("ƒvƒŒƒCƒ„–¼(2)‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B(10•¶šˆÈ“à)\n");
+						printf("ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½(2)ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B(10ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½)\n");
 						scanf_s("%s", name2, 11);
 						break;
 					case 1:
-						printf("Ÿ—˜“¾“_‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B(©‘R”)\n");
+						printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B(ï¿½ï¿½ï¿½Rï¿½ï¿½)\n");
 						do {
 							scanf_s("%hd", &win_num);
 							if (win_num < 1)
-								printf("©‘R”‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+								printf("ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 							if (win_num <= han_n)
-								printf("ƒnƒ“ƒf‚Ì“_”(%d)‚æ‚è‚à‚‚­‚µ‚Ä‚­‚¾‚³‚¢B", han_n);
+								printf("ï¿½nï¿½ï¿½ï¿½fï¿½Ì“_ï¿½ï¿½(%d)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B", han_n);
 						} while (win_num < 1 || win_num <= han_n);
 						break;
 					case 2:
-						printf("ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚ÌMAX‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B(Å‘å6)\n");
+						printf("ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½MAXï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B(ï¿½Å‘ï¿½6)\n");
 						do {
 							scanf_s("%hd", &sp_max);
 							if (sp_max < 1 || sp_max > 6)
-								printf("1`6‚ÌŠÔ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+								printf("1ï¿½`6ï¿½ÌŠÔ‚ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 						} while (sp_max < 1 || sp_max > 6);
-						printf("ƒXƒyƒVƒƒƒ‹‚Ìí—Ş‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢B(1 => ”š‘¬ -Œõ- 2 => ¸–§-—- 3 => ˜—-•‘-)\n");
+						printf("ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½Ş‚ï¿½Iï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B(1 => ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½- 2 => ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½- 3 => ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½-)\n");
 						do {
-							printf("ƒvƒŒƒCƒ„1>");
+							printf("ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½1>");
 							scanf_s("%hd", &sp_kind_p);
 							if (sp_kind_p != 1 && sp_kind_p != 2 && sp_kind_p != 3)
-								printf("1‚©2‚©3‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+								printf("1ï¿½ï¿½2ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 						} while (sp_kind_p != 1 && sp_kind_p != 2 && sp_kind_p != 3);
 						do {
-							printf("ƒvƒŒƒCƒ„2>");
+							printf("ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½2>");
 							scanf_s("%hd", &sp_kind_e);
 							if (sp_kind_e != 1 && sp_kind_e != 2 && sp_kind_e != 3)
-								printf("1‚©2‚©3‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+								printf("1ï¿½ï¿½2ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 						} while (sp_kind_e != 1 && sp_kind_e != 2 && sp_kind_e != 3);
 						break;
 					case 3:
-						printf("ƒŠƒvƒŒƒC‚µ‚Ü‚·‚©?(1 => ‚·‚é@@2 => ‚µ‚È‚¢)\n");
+						printf("ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½?(1 => ï¿½ï¿½ï¿½ï¿½@ï¿½@2 => ï¿½ï¿½ï¿½È‚ï¿½)\n");
 						do {
 							scanf_s("%hd", &rep);
 							if (rep != 1 && rep != 2)
-								printf("1‚©2‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+								printf("1ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 						} while (rep != 1 && rep != 2);
 
 						break;
 					case 4:
 						if (win_num != 1) {
-							printf("ƒnƒ“ƒf‚ğ‚à‚ç‚¤‚Ì‚ÍH(1 => ƒvƒŒƒCƒ„1  2 => ƒvƒŒƒCƒ„2 3 = > ƒnƒ“ƒf‚È‚µ)\n");
+							printf("ï¿½nï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ï¿½ç‚¤ï¿½Ì‚ÍH(1 => ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½1  2 => ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½2 3 = > ï¿½nï¿½ï¿½ï¿½fï¿½È‚ï¿½)\n");
 							do {
 								scanf_s("%hd", &han_d);
 								if (han_d != 1 && han_d != 2 && han_d != 3)
-									printf("1‚©2‚©3‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+									printf("1ï¿½ï¿½2ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 							} while (han_d != 1 && han_d != 2 && han_d != 3);
 							if (han_d == 3) {
 								han_n = 0;
 								break;
 							}
-							printf("ƒnƒ“ƒf‚Ì“_”‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+							printf("ï¿½nï¿½ï¿½ï¿½fï¿½Ì“_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 							do {
 								scanf_s("%hd", &han_n);
 								if (han_n < 1 || han_n >= win_num)
-									printf("1‚©‚çŸ—˜“¾“_(%d)‚ÌŠÔ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n", win_num);
+									printf("1ï¿½ï¿½ï¿½çŸï¿½ï¿½ï¿½ï¿½ï¿½_(%d)ï¿½ÌŠÔ‚ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n", win_num);
 							} while (han_n < 1 || han_n >= win_num);
 						}
 						else {
-							printf("Ÿ—˜“¾“_‚ª1“_‚Ì‚Íƒnƒ“ƒf‚ğ‚Â‚¯‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñB\n");
+							printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½1ï¿½_ï¿½Ìï¿½ï¿½Íƒnï¿½ï¿½ï¿½fï¿½ï¿½ï¿½Â‚ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B\n");
 							printf("Any key plese...");
-							//“ü—Í‘Ò‚¿
+							//ï¿½ï¿½ï¿½Í‘Ò‚ï¿½
 							while(1)
 								if (_kbhit()) {
-									key = _getch(); //ˆÓ}‚µ‚È‚¢•Ï”‚É‘ã“ü‚³‚ê‚é‚Ì‚ğ–h‚®
+									key = _getch(); //ï¿½Ó}ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ïï¿½ï¿½É‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½hï¿½ï¿½
 									break;
 								}
 						}
 						break;
 					case 5:
-						printf("ƒfƒ…[ƒX‚Í‚Ç‚¤‚·‚éH(1 =>@‚ ‚è 2 => ‚È‚µ)\n");
+						printf("ï¿½fï¿½ï¿½ï¿½[ï¿½Xï¿½Í‚Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½H(1 =>ï¿½@ï¿½ï¿½ï¿½ï¿½ 2 => ï¿½È‚ï¿½)\n");
 						do {
 							scanf_s("%hd", &deuce);
 							if (deuce != 1 && deuce != 2)
-								printf("1‚©2‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+								printf("1ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 						} while (deuce != 1 && deuce != 2);
 						deuce--;
 						break;
@@ -346,24 +345,24 @@ int main(void) {
 				} while (op_opt != 6);
 				break;
 
-			//ƒ‹[ƒ‹à–¾
+			//ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			case 3:
 				while (1) {
-					printf("=====ƒ‹[ƒ‹=====\n");
-					printf("‡@‘Šè‚æ‚èæ‚ÉŸ—˜“¾“_‚É“’B‚·‚é‚±‚Æ‚ªŸ—˜ğŒ\n");
-					printf("‡AƒXƒpƒCƒN‚ğ‘Å‚Â‚±‚Æ‚ÅƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚ğ‘‚â‚¹‚é\n");
-					printf("‡BƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚ğÅ‘å”‚½‚ß‚é‚ÆƒXƒyƒVƒƒƒ‹ƒXƒpƒCƒN‚ğ‘Å‚Â‚±‚Æ‚ª‚Å‚«‚é\n");
-					printf("‡CƒvƒŒƒCƒ„1‚ÍA‰EˆÚ“® -> a ¶ˆÚ“® ->d ƒWƒƒƒ“ƒv -> w ƒgƒXAƒT[ƒu -> s ƒXƒpƒCƒN@-> f\n");
-					printf("‡DƒvƒŒƒCƒ„2‚ÍA‰EˆÚ“® -> k ¶ˆÚ“® ->; ƒWƒƒƒ“ƒv -> o ƒgƒXAƒT[ƒu -> l ƒXƒpƒCƒN@-> j\n");
-					printf("‡EƒR[ƒg‚©‚ç‚Í‚İo‚µ‚Ä—‚¿‚é‚Æˆê”­•‰‚¯\n");
-					printf("‡FƒVƒ“ƒOƒ‹ƒ‚[ƒh‚Å‚Í‘Îí‘Šè‚ÍƒRƒ“ƒsƒ…[ƒ^\n");
-					printf("‡GƒT[ƒu‚ğƒXƒpƒCƒN‚·‚é‚±‚Æ‚à‰Â”\\n");
+					printf("=====ï¿½ï¿½ï¿½[ï¿½ï¿½=====\n");
+					printf("ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½É“ï¿½ï¿½Bï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
+					printf("ï¿½Aï¿½Xï¿½pï¿½Cï¿½Nï¿½ï¿½Å‚Â‚ï¿½ï¿½Æ‚ÅƒXï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ğ‘‚â‚¹ï¿½ï¿½\n");
+					printf("ï¿½Bï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Å‘å”ï¿½ï¿½ï¿½ß‚ï¿½ÆƒXï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½pï¿½Cï¿½Nï¿½ï¿½Å‚Â‚ï¿½ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½ï¿½\n");
+					printf("ï¿½Cï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½1ï¿½ÍAï¿½Eï¿½Ú“ï¿½ -> a ï¿½ï¿½ï¿½Ú“ï¿½ ->d ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½v -> w ï¿½gï¿½Xï¿½Aï¿½Tï¿½[ï¿½u -> s ï¿½Xï¿½pï¿½Cï¿½Nï¿½@-> f\n");
+					printf("ï¿½Dï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½2ï¿½ÍAï¿½Eï¿½Ú“ï¿½ -> k ï¿½ï¿½ï¿½Ú“ï¿½ ->; ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½v -> o ï¿½gï¿½Xï¿½Aï¿½Tï¿½[ï¿½u -> l ï¿½Xï¿½pï¿½Cï¿½Nï¿½@-> j\n");
+					printf("ï¿½Eï¿½Rï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½Í‚İoï¿½ï¿½ï¿½Ä—ï¿½ï¿½ï¿½ï¿½ï¿½Æˆê”­ï¿½ï¿½ï¿½ï¿½\n");
+					printf("ï¿½Fï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½Å‚Í‘Îí‘Šï¿½ï¿½ÍƒRï¿½ï¿½ï¿½sï¿½ï¿½ï¿½[ï¿½^\n");
+					printf("ï¿½Gï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½Xï¿½pï¿½Cï¿½Nï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½Â”\\n");
 					printf("Any key plese...\n");
 
-					//“ü—Í‚³‚ê‚½‚çŸ‚Ö
+					//ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ê‚½ï¿½çŸï¿½ï¿½
 					while (1) {
 						if (_kbhit()) {
-							key = _getch;  //ˆÓ}‚µ‚È‚¢•Ï”‚É‘ã“ü‚³‚ê‚é‚Ì‚ğ–h‚®
+							key = _getch;  //ï¿½Ó}ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ïï¿½ï¿½É‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½hï¿½ï¿½
 							break;
 						}
 					}
@@ -381,20 +380,20 @@ int main(void) {
 			break;
 
 		do {
-			//ƒT[ƒuŒˆ‚ß
-			printf("ƒT[ƒu‚Í‚Ç‚Á‚¿H(1 => %s‚ªƒT[ƒu 2 => %s‚ªƒT[ƒu 3 => %s)\n", name1, name2, (!op)?"‚¶‚á‚ñ‚¯‚ñ‚ÅŒˆ‚ß‚é":"ƒ‰ƒ“ƒ_ƒ€‚ÅŒˆ‚ß‚é");
+			//ï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½
+			printf("ï¿½Tï¿½[ï¿½uï¿½Í‚Ç‚ï¿½ï¿½ï¿½ï¿½H(1 => %sï¿½ï¿½ï¿½Tï¿½[ï¿½u 2 => %sï¿½ï¿½ï¿½Tï¿½[ï¿½u 3 => %s)\n", name1, name2, (!op)?"ï¿½ï¿½ï¿½ï¿½ñ‚¯‚ï¿½ÅŒï¿½ï¿½ß‚ï¿½":"ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ÅŒï¿½ï¿½ß‚ï¿½");
 
 			do {
 				scanf_s("%hd", &s_d);
 				
 				if (s_d != 1 && s_d != 2 && s_d != 3)
-					printf("1‚©2‚©3‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+					printf("1ï¿½ï¿½2ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 			} while (s_d != 1 && s_d != 2 && s_d != 3);
 
-			//—”‚Ìí‚ğ•ÏX
+			//ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ÏX
 			srand((unsigned int)time(NULL));
 
-			//ƒT[ƒuŒ ‚ÌƒZƒbƒg
+			//ï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½ÌƒZï¿½bï¿½g
 			switch (s_d) {
 			case 1:
 				surve_right = 0;
@@ -406,84 +405,84 @@ int main(void) {
 				break;
 			case 3:
 				if (!op) {
-					//‰æ–ÊÁ‹
+					//ï¿½ï¿½Êï¿½ï¿½ï¿½
 					system("cls");
 
-					//‚¶‚á‚ñ‚¯‚ñ‚ÅŒˆ‚ß‚é
-					printf("ƒT[ƒo[Œˆ‚ß‚¶‚á‚ñ‚¯‚ñ!!!\n");
+					//ï¿½ï¿½ï¿½ï¿½ñ‚¯‚ï¿½ÅŒï¿½ï¿½ß‚ï¿½
+					printf("ï¿½Tï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ñ‚¯‚ï¿½!!!\n");
 
-					//©•ª‚Ìè
-					printf("%so‚·è‚ğ‘I‚ñ‚Å‚Ë (1 => ƒO[@2 => ƒ`ƒ‡ƒL 3 =>@ƒp[)\n", (op == 0) ? "" : "ƒvƒŒƒCƒ„1");
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½
+					printf("%sï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½Å‚ï¿½ (1 => ï¿½Oï¿½[ï¿½@2 => ï¿½`ï¿½ï¿½ï¿½L 3 =>ï¿½@ï¿½pï¿½[)\n", (op == 0) ? "" : "ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½1");
 					do {
 						scanf_s("%hd", &man);
 						man -= 1;
 						if (man < 0 || man >= 3)
-							printf("1‚©2‚©3‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+							printf("1ï¿½ï¿½2ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 					} while (man < 0 || man >= 3);
 
-					//‘Šè‚Ìè
+					//ï¿½ï¿½ï¿½ï¿½Ìï¿½
 					if (op == 0) {
 						do {
 							com = rand() % 3;
 						} while (com == man);
 					}
 					else {
-						printf("ƒvƒŒƒCƒ„2‚Ìo‚·è‚ğ‘I‚ñ‚Å‚Ë (1 => ƒO[ 2 => ƒ`ƒ‡ƒL 3 => ƒp[)\n");
+						printf("ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½2ï¿½Ìoï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½Å‚ï¿½ (1 => ï¿½Oï¿½[ 2 => ï¿½`ï¿½ï¿½ï¿½L 3 => ï¿½pï¿½[)\n");
 						do {
 							scanf_s("%hd", &com);
 							com -= 1;
 							if (com < 0 || com >= 3)
-								printf("1‚©2‚©3‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+								printf("1ï¿½ï¿½2ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B\n");
 						} while (com < 0 || com >= 3);
 
 					}
 
-					//Ÿ”s”»’è
+					//ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
 					diff = (com - man + 3) % 3;
 
-					//‰æ–ÊÁ‹
+					//ï¿½ï¿½Êï¿½ï¿½ï¿½
 					system("cls");
 
-					//Ÿ”s•\¦
+					//ï¿½ï¿½ï¿½sï¿½\ï¿½ï¿½
 					printf("%s:", name1);
 					switch (man) {
 					case 0:
-						printf("ƒO[\t");
+						printf("ï¿½Oï¿½[\t");
 						break;
 					case 1:
-						printf("ƒ`ƒ‡ƒL\t");
+						printf("ï¿½`ï¿½ï¿½ï¿½L\t");
 						break;
 					case 2:
-						printf("ƒp[\t");
+						printf("ï¿½pï¿½[\t");
 						break;
 					}
 
 					printf("%s:", name2);
 					switch (com) {
 					case 0:
-						printf("ƒO[\t");
+						printf("ï¿½Oï¿½[\t");
 						break;
 					case 1:
-						printf("ƒ`ƒ‡ƒL\t");
+						printf("ï¿½`ï¿½ï¿½ï¿½L\t");
 						break;
 					case 2:
-						printf("ƒp[\t");
+						printf("ï¿½pï¿½[\t");
 						break;
 					}
 
 					switch (diff) {
 					case 1:
-						printf("%s‚ÌƒT[ƒu\n", name1);
+						printf("%sï¿½ÌƒTï¿½[ï¿½u\n", name1);
 						surve_right = 0;
 						break;
 					case 2:
-						printf("%s‚ÌƒT[ƒu\n", name2);
+						printf("%sï¿½ÌƒTï¿½[ï¿½u\n", name2);
 						surve_right = 1;
 						break;
 					}
 				}
 				else {
-					//ƒ‰ƒ“ƒ_ƒ€‚ÅƒT[ƒuŒ Œˆ‚ß
+					//ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ÅƒTï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					srand((unsigned int)time(NULL));
 					s_r = rand() % 2;
 					if (!s_r)
@@ -491,18 +490,18 @@ int main(void) {
 					else
 						surve_right = 1;
 
-					//‰æ–ÊÁ‹
+					//ï¿½ï¿½Êï¿½ï¿½ï¿½
 					system("cls");
 
-					//Œ‹‰Ê•\¦
-					printf("ƒT[ƒuŒ ’Š‘I‚ÌŒ‹‰Ê:%s‚ÌƒT[ƒu\n", (!surve_right) ? name1:name2);
+					//ï¿½ï¿½ï¿½Ê•\ï¿½ï¿½
+					printf("ï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ÌŒï¿½ï¿½ï¿½:%sï¿½ÌƒTï¿½[ï¿½u\n", (!surve_right) ? name1:name2);
 				}
 
-				//ƒQ[ƒ€ŠJn
+				//ï¿½Qï¿½[ï¿½ï¿½ï¿½Jï¿½n
 				printf("Any key plese...");
 				while (1) {
 					if (_kbhit()) {
-						key = _getch(); //ˆÓ}‚µ‚È‚¢•Ï”‚É‘ã“ü‚³‚ê‚é‚Ì‚ğ–h‚®
+						key = _getch(); //ï¿½Ó}ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ïï¿½ï¿½É‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½hï¿½ï¿½
 						system("cls");
 						break;
 					}
@@ -510,7 +509,7 @@ int main(void) {
 				break;
 			}
 
-			//ƒnƒ“ƒf‚Ì“_”‚ğ’Ç‰Á
+			//ï¿½nï¿½ï¿½ï¿½fï¿½Ì“_ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½
 			if (han_d == 1)
 				point_p = han_n;
 			if (han_d == 2)
@@ -520,27 +519,27 @@ int main(void) {
 			de_adv = 0;
 
 			do {
-				//ƒfƒ…[ƒX”»’è
+				//ï¿½fï¿½ï¿½ï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½
 				if (point_p == win_num - 1 && point_e == win_num - 1 && deuce == 0)
 					de_pri = 1;
 
-				//ƒT[ƒu
+				//ï¿½Tï¿½[ï¿½u
 
-				//À•W‚ğƒŠƒZƒbƒg
+				//ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
 				px = 5, py = 14;
 				ex = 18, ey = 14;
 
-				//ƒtƒ‰ƒO‚ğ‰º‚°‚é
+				//ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				finish = 0;
 				toss_p = 0;
 				toss_e = 0;
 				spaik = 0;
 				end = 0;
 
-				//‚ğ–ß‚·
+				//ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 				time_count = 0;
 
-				//ƒT[ƒu‚ÌƒZƒbƒg
+				//ï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½ÌƒZï¿½bï¿½g
 				switch (surve_right % 2) {
 				case 0:
 					b_dir = 0;
@@ -554,29 +553,29 @@ int main(void) {
 					break;
 				}
 
-				//•\¦—p‚ÌƒT[ƒuŒ 
+				//ï¿½\ï¿½ï¿½ï¿½pï¿½ÌƒTï¿½[ï¿½uï¿½ï¿½
 				surve_right_p = surve_right;
 
-				//‰Šú‰»(doubleŒ^‚Ìby)
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(doubleï¿½^ï¿½ï¿½by)
 				by_d = by;
 
-				//ƒ|ƒCƒ“ƒgEƒT[ƒuŒ EƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚Ì•\¦
+				//ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Eï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½Eï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Ì•\ï¿½ï¿½
 				printf("\n\n\n");
 				printf("\t\t\t\t\t\t    ");
-				printf("ƒT[ƒu‚É‚æ‚èŠJn\n");
+				printf("ï¿½Tï¿½[ï¿½uï¿½É‚ï¿½ï¿½Jï¿½n\n");
 				printf("\t\t\t\t\t\t    ");
 				switch (surve_right_p) {
 				case 0:
-					printf("œƒT[ƒu\n");
+					printf("ï¿½ï¿½ï¿½Tï¿½[ï¿½u\n");
 					break;
 				case 1:
-					printf("      @    @@@@@@@@@ @          @ƒT[ƒuœ\n");
+					printf("      ï¿½@    ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ ï¿½@          ï¿½@ï¿½Tï¿½[ï¿½uï¿½ï¿½\n");
 					break;
 				}
 				printf("\t\t\t\t\t\t    ");
-				printf("%s@      @@@@@@ @                @%s\n", name1, name2);
+				printf("%sï¿½@      ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ ï¿½@                ï¿½@%s\n", name1, name2);
 				printf("\t\t\t\t\t\t    ");
-				printf("ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg\n");
+				printf("ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½g\n");
 				printf("\t\t\t\t\t\t    ");
 				if (sp_max == sp_p) {
 					if (sp_do_p == 0)
@@ -587,13 +586,13 @@ int main(void) {
 				else {
 					for (i = 0; i < 5; i++) {
 						if (i < sp_p)
-							printf("¡");
+							printf("ï¿½ï¿½");
 						else
 							printf("  ");
 					}
 				}
 
-				printf("@@@@@             @@@    ");
+				printf("ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@             ï¿½@ï¿½@ï¿½@    ");
 				if (sp_max == sp_e) {
 					if (sp_do_e == 0)
 						printf("!!!MAX!!! ");
@@ -605,7 +604,7 @@ int main(void) {
 						if (j >= sp_e)
 							printf("  ");
 						else
-							printf("¡");
+							printf("ï¿½ï¿½");
 					}
 				}
 
@@ -614,7 +613,7 @@ int main(void) {
 				if (de_pri)
 					switch (de_adv) {
 					case 0:
-						printf("                      ƒfƒ…[ƒX\n");
+						printf("                      ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
 						break;
 					case 1:
 						printf("Adv.                      :                        %hd\n", point_e);
@@ -628,41 +627,41 @@ int main(void) {
 
 				printf("\n");
 
-				//ƒR[ƒg‚Ì•\¦
+				//ï¿½Rï¿½[ï¿½gï¿½Ì•\ï¿½ï¿½
 				for (y = 0; y <= MAP_Y; y++) {
 					printf("\t\t\t\t\t\t    ");
 					for (x = 0; x <= MAP_X; x++) {
 						if (x == px && y == py - 2)
-							printf("£");
+							printf("ï¿½ï¿½");
 						else if (x == px && y == py - 1)
-							printf("¡");
+							printf("ï¿½ï¿½");
 						else if (x == px && y == py)
-							printf("”ª");
+							printf("ï¿½ï¿½");
 						else if (x == ex && y == ey - 2)
-							printf("›");
+							printf("ï¿½ï¿½");
 						else if (x == ex && y == ey - 1)
-							printf("¡");
+							printf("ï¿½ï¿½");
 						else if (x == ex && y == ey)
-							printf("ƒ‹");
+							printf("ï¿½ï¿½");
 						else if (x == bx && y == by)
-							printf("œ");
+							printf("ï¿½ï¿½");
 						else if (x == 13 && y >= 7 && y < 15)
-							printf(" ");
+							printf("ï¿½ï¿½");
 						else if (x > 1 && x < 25 && y == 15)
-							printf(" ");
+							printf("ï¿½ï¿½");
 						else
 							printf("  ");
 					}
 					printf("\n");
 				}
 
-				//À•W‚ğ•\¦
+				//ï¿½ï¿½ï¿½Wï¿½ï¿½\ï¿½ï¿½
 				printf("\t\t\t\t\t\t         ");
 				printf("(px,py) = (%d, %d)          (ex, ey) = (%d, %d)", px, py, ex, ey);
 
-				//‘Å‚Â‚Ü‚Å‘Ò‚Â
+				//ï¿½Å‚Â‚Ü‚Å‘Ò‚ï¿½
 				if (surve == 1) {
-					//ƒT[ƒuŒ ‚ª©•ª
+					//ï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					if (!surve_right) {
 						while (1) {
 							if (_getch() == 's') {
@@ -686,14 +685,14 @@ int main(void) {
 					}
 				}
 
-				//‡
+				//ï¿½ï¿½ï¿½ï¿½
 				while (1) {
-					//ƒfƒ…[ƒX”»’è
+					//ï¿½fï¿½ï¿½ï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½
 					if (point_p == win_num - 1 && point_e == win_num - 1 && deuce == 0)
 						de_pri = 1;
 
-					/*ƒvƒŒƒCƒ„[‚ÌˆÚ“®*/
-					//¶‰E‚ÌˆÚ“®‚ÆƒWƒƒƒ“ƒv
+					/*ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌˆÚ“ï¿½*/
+					//ï¿½ï¿½ï¿½Eï¿½ÌˆÚ“ï¿½ï¿½ÆƒWï¿½ï¿½ï¿½ï¿½ï¿½v
 					if (sp_2_sel != 1) {
 						if (_kbhit()) {
 							p = _getch();
@@ -734,7 +733,7 @@ int main(void) {
 									sp_do_p %= 2;
 								}
 								break;
-							//“ñlƒvƒŒƒC—p‚ÌˆÚ“®
+							//ï¿½ï¿½lï¿½vï¿½ï¿½ï¿½Cï¿½pï¿½ÌˆÚ“ï¿½
 							case 'k':
 								if (op == 1)
 									if (ex >= 15)
@@ -779,7 +778,7 @@ int main(void) {
 							}
 						}
 
-						//—‰º
+						//ï¿½ï¿½ï¿½ï¿½
 						if (jumping_p == 1) {
 							py_d -= v_p;
 							v_p -= 4;
@@ -791,14 +790,14 @@ int main(void) {
 							}
 						}
 
-						/*ƒR[ƒg‚Í‚İo‚µ*/
-						//‚Í‚İo‚µ‚½‚Æ‚«
+						/*ï¿½Rï¿½[ï¿½gï¿½Í‚İoï¿½ï¿½*/
+						//ï¿½Í‚İoï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½
 						if (px < 2) {
 							jumping_p = 1;
 							py_d = py;
 						}
 
-						//ˆê”Ô‰º‚És‚Á‚½‚ç•‰‚¯
+						//ï¿½ï¿½Ô‰ï¿½ï¿½Ésï¿½ï¿½ï¿½ï¿½ï¿½ç•‰ï¿½ï¿½
 						if (py >= 25) {
 							end = 1;
 							if(rep == 1)
@@ -807,13 +806,13 @@ int main(void) {
 						}
 
 
-						/*ƒvƒŒƒCƒ„[‚ÌˆÚ“®‚±‚±‚Ü‚Å*/
+						/*ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½*/
 
-						/*‘Šè‚ÌˆÚ“®*/
-						if (!op) { //ˆêlƒvƒŒƒC‚Ì‚Æ‚«‚Ì‚İ
+						/*ï¿½ï¿½ï¿½ï¿½ÌˆÚ“ï¿½*/
+						if (!op) { //ï¿½ï¿½lï¿½vï¿½ï¿½ï¿½Cï¿½Ì‚Æ‚ï¿½ï¿½Ì‚ï¿½
 							if (time_count % 2) {
 								if (s_g_e == 1) {
-									//ƒXƒpƒCƒN‚µ‚És‚­
+									//ï¿½Xï¿½pï¿½Cï¿½Nï¿½ï¿½ï¿½Ésï¿½ï¿½
 									if (ex != 14)
 										ex--;
 									if (ex == 14 && bx >= 13 && jumping_e == 0) {
@@ -823,7 +822,7 @@ int main(void) {
 									}
 								}
 								else {
-									//ƒ{[ƒ‹‚ğ’Ç‚¢‚©‚¯‚é
+									//ï¿½{ï¿½[ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 									if (bx > 13) {
 										if (ex > bx && ex > 14)
 											ex--;
@@ -839,11 +838,11 @@ int main(void) {
 								}
 
 							}
-							//ƒXƒpƒCƒN(‘Šè)
+							//ï¿½Xï¿½pï¿½Cï¿½N(ï¿½ï¿½ï¿½ï¿½)
 							if (jumping_e == 1 && (bx > ex - 1 && bx < ex + 1) && by < ey + 3 && by > ey - 5 && b_dir == 0)
 								spaik_e = 1, spaik_e_time = time_count, s_g_e = 0, spaik_e_print = 1;
 
-							//ƒgƒX(‘Šè)
+							//ï¿½gï¿½X(ï¿½ï¿½ï¿½ï¿½)
 							srand((unsigned int)time(NULL));
 							jakka = rand() % 6;
 
@@ -851,7 +850,7 @@ int main(void) {
 								toss_e = 1, toss_e_time = time_count, toss_e_print = 1;
 						}
 
-						//—‰º
+						//ï¿½ï¿½ï¿½ï¿½
 						if (jumping_e == 1) {
 							ey_d -= v_e;
 							v_e -= 4;
@@ -863,14 +862,14 @@ int main(void) {
 							}
 						}
 
-						/*ƒR[ƒg‚Í‚İo‚µ*/
-						//‚Í‚İo‚µ‚½‚Æ‚«
+						/*ï¿½Rï¿½[ï¿½gï¿½Í‚İoï¿½ï¿½*/
+						//ï¿½Í‚İoï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½
 						if (ex > 24) {
 							jumping_e = 1;
 							ey_d = ey;
 						}
 
-						//ˆê”Ô‰º‚És‚Á‚½‚ç•‰‚¯
+						//ï¿½ï¿½Ô‰ï¿½ï¿½Ésï¿½ï¿½ï¿½ï¿½ï¿½ç•‰ï¿½ï¿½
 						if (ey >= 25) {
 							end = 4;
 							if(rep == 1)
@@ -879,9 +878,9 @@ int main(void) {
 						}
 
 					}
-					/*‘Šè‚ÌˆÚ“®‚±‚±‚Ü‚Å*/
+					/*ï¿½ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½*/
 
-					/*ƒ{[ƒ‹‚ÌˆÚ“®*/
+					/*ï¿½{ï¿½[ï¿½ï¿½ï¿½ÌˆÚ“ï¿½*/
 					if (sp_2_sel == 1) {
 						if (seller == 1) {
 							if (_kbhit()) {
@@ -925,9 +924,9 @@ int main(void) {
 					}
 
 					if (time_count % 2 == 0 && sp_2_sel != 1) {
-						//‰¡(x)•ûŒü
+						//ï¿½ï¿½(x)ï¿½ï¿½ï¿½ï¿½
 
-						//˜—‚Ì
+						//ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½
 						if (sp_kind == 3) {
 							if (b_dir == 0) {
 								if ((time_count - kakuran_time) % 4 == 0)
@@ -954,7 +953,7 @@ int main(void) {
 						}
 						
 
-						//˜—ˆÈŠO‚Ì
+						//ï¿½ï¿½ï¿½ï¿½ï¿½ÈŠOï¿½Ìï¿½
 						if (sp_kind != 3 && sp_kind != 2) {
 							switch (b_dir) {
 							case 0:
@@ -970,24 +969,24 @@ int main(void) {
 							}
 						}
 
-						//c(y)•ûŒü(—‰º)
+						//ï¿½c(y)ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
 						by_d -= v_b;
 						v_b -= 0.5;
 						by = by_d;
 
-						//ƒlƒbƒg‚É“–‚½‚Á‚½
+						//ï¿½lï¿½bï¿½gï¿½É“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						if ((bx == 14 && (by - v_b) >= 7 && b_dir == 1) || (bx == 12 && ((by - v_b) >= 7 && b_dir == 0)))
 							b_dir = (b_dir + 1) % 2;
 
-						//°‚É‚Â‚¢‚½‚Æ‚«
+						//ï¿½ï¿½ï¿½É‚Â‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½
 						if (by >= 14) {
-							//°ŠÑ’Ê‚µ‚È‚¢‚æ‚¤‚É
+							//ï¿½ï¿½ï¿½Ñ’Ê‚ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½ï¿½
 							by = 14;
 
-							//’µ‚Ë•Ô‚é
+							//ï¿½ï¿½ï¿½Ë•Ô‚ï¿½
 							v_b *= -1;
 
-							//“¾“_‚ğ‰ÁZ
+							//ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Z
 							if ((bx >= 14 && bx < 25) || bx < 1)
 								if(de_pri)
 									switch (de_adv) {
@@ -1021,7 +1020,7 @@ int main(void) {
 								else
 							    	point_e++;
 
-							//Ÿ‚ÌƒvƒŒƒC‚Ö
+							//ï¿½ï¿½ï¿½Ìƒvï¿½ï¿½ï¿½Cï¿½ï¿½
 							finish_time = time_count;
 							finish = 1;
 							play_none = 1;
@@ -1031,7 +1030,7 @@ int main(void) {
 						}
 					}
 
-					//ƒgƒX
+					//ï¿½gï¿½X
 					if ((((toss_p == 1 && (bx > px - 1 && bx < px + 1) && (by < py + 3 && by > py - 5)) || (toss_e == 1 && (bx > ex - 1 && bx < ex + 1) && (by < ey + 3 && by > ey - 5)))) && finish == 0) {
 						b_dir += 1;
 						b_dir %= 2;
@@ -1048,23 +1047,23 @@ int main(void) {
 						sp_kind = 0;
 					}
 
-					//ƒXƒpƒCƒN
+					//ï¿½Xï¿½pï¿½Cï¿½N
 					if ((spaik == 1 && jumping_p == 1 && (bx > px - 1 && bx < px + 1) && (by < py + 3 && by > py - 5)) || (spaik_e == 1 && (bx > ex - 1 && bx < ex + 1) && (by < ey + 3 && by > ey - 5))) {
-						//•ûŒü‚Ì•ÔŠÒ
+						//ï¿½ï¿½ï¿½ï¿½ï¿½Ì•ÔŠï¿½
 						b_dir += 1;
 						b_dir %= 2;
 
-						//‘¬“x‚Ì•ÏX
+						//ï¿½ï¿½ï¿½xï¿½Ì•ÏX
 						v_b = 0;
 
-						//ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‘‰Á
+						//ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½
 						if (sp_max > sp_p && spaik == 1)
 							sp_p++;
 
 						if (sp_max > sp_e && spaik_e == 1)
 							sp_e++;
 
-						//‘¬“x‚Ì•ÏX‚ÆƒXƒyƒVƒƒƒ‹‚Ìg—p
+						//ï¿½ï¿½ï¿½xï¿½Ì•ÏXï¿½ÆƒXï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìgï¿½p
 						if (sp_do_p != 0 && spaik == 1) {
 							sp_p = 0;
 							sp_do_p = 0;
@@ -1122,19 +1121,19 @@ int main(void) {
 						spaik_e = 0;
 					}
 
-					//ƒvƒŒƒC‚ğŸ‚Ö(°‚É‚Â‚¢‚Ä‚©‚ç6ƒJƒEƒ“ƒg•ª)
+					//ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½É‚Â‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½6ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½)
 
 					if (play_none == 1) {
 						surve = 1;
 						if (time_count - finish_time == 6) {
-							//Ÿ”s”»’è
+							//ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
 							if (point_p == win_num)
 								end = 2;
 
 							if (point_e == win_num)
 								end = 3;
 
-							//Ÿ‚ÌƒvƒŒƒC‚Ö
+							//ï¿½ï¿½ï¿½Ìƒvï¿½ï¿½ï¿½Cï¿½ï¿½
 							if ((point_p != win_num && point_e != win_num) || rep == 1)
 								system("cls");
 
@@ -1144,24 +1143,24 @@ int main(void) {
 						}
 					}
 
-					//‰æ–ÊÁ‹
+					//ï¿½ï¿½Êï¿½ï¿½ï¿½
 					system("cls");
 
-					//ƒ|ƒCƒ“ƒgEƒT[ƒuŒ EƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚Ì•\¦
+					//ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Eï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½Eï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Ì•\ï¿½ï¿½
 					printf("\n\n\n\n\n\n\n");
 					printf("\t\t\t\t\t\t    ");
 					switch (surve_right_p) {
 					case 0:
-						printf("œ\n");
+						printf("ï¿½ï¿½\n");
 						break;
 					case 1:
-						printf("                                                   œ\n");
+						printf("                                                   ï¿½ï¿½\n");
 						break;
 					}
 					printf("\t\t\t\t\t\t    ");
-					printf("%s@@        @@     @@ @           @%s\n", name1, name2);
+					printf("%sï¿½@ï¿½@        ï¿½@ï¿½@     ï¿½@ï¿½@ ï¿½@           ï¿½@%s\n", name1, name2);
 					printf("\t\t\t\t\t\t    ");
-					printf("ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg\n");
+					printf("ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½g\n");
 					printf("\t\t\t\t\t\t    ");
 					if (sp_max == sp_p) {
 						if (sp_do_p == 0)
@@ -1172,12 +1171,12 @@ int main(void) {
 					else {
 						for (i = 0; i < 5; i++) {
 							if (i < sp_p)
-								printf("¡");
+								printf("ï¿½ï¿½");
 							else
 								printf("  ");
 						}
 					}
-					printf("@@@@     @      @@@      ");
+					printf("ï¿½@ï¿½@ï¿½@ï¿½@     ï¿½@      ï¿½@ï¿½@ï¿½@      ");
 					if (sp_max == sp_e) {
 						if (sp_do_e == 0)
 							printf("!!!MAX!!! ");
@@ -1189,7 +1188,7 @@ int main(void) {
 							if (j >= sp_e)
 								printf("  ");
 							else
-								printf("¡");
+								printf("ï¿½ï¿½");
 						}
 					}
 
@@ -1198,7 +1197,7 @@ int main(void) {
 					if (de_pri)
 						switch (de_adv) {
 						case 0:
-							printf("                      ƒfƒ…[ƒX\n");
+							printf("                      ï¿½fï¿½ï¿½ï¿½[ï¿½X\n");
 							break;
 						case 1:
 							printf("Adv.                      :                        %hd\n", point_e);
@@ -1210,63 +1209,63 @@ int main(void) {
 					else
 					    printf("%hd                         :                        %hd\n", point_p, point_e);
 
-					//ƒXƒyƒVƒƒƒ‹ƒXƒpƒCƒN‚Ì•\¦
+					//ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½pï¿½Cï¿½Nï¿½Ì•\ï¿½ï¿½
 					switch (sp_kind) {
 					case 0:
 						printf("\n");
 						break;
 					case 1:
-						printf("\t\t\t\t\t\t                          ”š‘¬ -Œõ-\n");
+						printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 						break;
 					case 2:
-						printf("\t\t\t\t\t\t                          ¸–§ -—-\n");
+						printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 						break;
 					case 3:
-						printf("\t\t\t\t\t\t                          ˜— -•‘-\n");
+						printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 						break;
 					}
 
-					//ƒR[ƒg‚Ì•\¦
+					//ï¿½Rï¿½[ï¿½gï¿½Ì•\ï¿½ï¿½
 					for (y = 0; y <= MAP_Y; y++) {
 						printf("\t\t\t\t\t\t    ");
 						for (x = 0; x <= MAP_X; x++) {
 							if (x == px && y == py - 2)
-								printf("£");
+								printf("ï¿½ï¿½");
 							else if (x == px && y == py - 1)
-								printf("¡");
+								printf("ï¿½ï¿½");
 							else if (x == px && y == py)
-								printf("”ª");
+								printf("ï¿½ï¿½");
 							else if (x == bx && y == by)
-								printf("œ");
+								printf("ï¿½ï¿½");
 							else if (x == px && y == py - 3 && toss_p_print == 1)
 								printf("TT");
 							else if (x == ex && y == ey - 3 && toss_e_print == 1)
 								printf("TT");
 							else if (x == px && y == py - 3 && spaik_p_print == 1)
-								printf("u");
+								printf("ï¿½u");
 							else if (x == ex && y == ey - 3 && spaik_e_print == 1)
 								printf("] ");
 							else if (x == ex && y == ey - 2)
-								printf("›");
+								printf("ï¿½ï¿½");
 							else if (x == ex && y == ey - 1)
-								printf("¡");
+								printf("ï¿½ï¿½");
 							else if (x == ex && y == ey)
-								printf("ƒ‹");
+								printf("ï¿½ï¿½");
 							else if (x == 13 && y >= 7 && y < 15)
-								printf(" ");
+								printf("ï¿½ï¿½");
 							else if (x > 1 && x < 25 && y == 15)
-								printf(" ");
+								printf("ï¿½ï¿½");
 							else
 								printf("  ");
 						}
 						printf("\n");
 					}
 
-					//À•W‚ğ•\¦
+					//ï¿½ï¿½ï¿½Wï¿½ï¿½\ï¿½ï¿½
 					printf("\t\t\t\t\t\t         ");
 					printf("(px,py) = (%d, %d)          (ex, ey) = (%d, %d)", px, py, ex, ey);
 
-					//‹OÕ‚Ì‘ã“ü
+					//ï¿½Oï¿½Õ‚Ì‘ï¿½ï¿½
 					hist_px[time_count] = px, hist_py[time_count] = py;
 					hist_ex[time_count] = ex, hist_ey[time_count] = ey;
 					hist_bx[time_count] = bx, hist_by[time_count] = by;
@@ -1281,10 +1280,10 @@ int main(void) {
 					hist_de_pri[time_count] = de_pri;
 					hist_de_adv[time_count] = de_adv;
 
-					//ŠÔ‚ğ‘‚â‚·
+					//ï¿½ï¿½ï¿½Ô‚ğ‘‚â‚·
 					time_count++;
 
-					//ƒgƒX‚Ìƒtƒ‰ƒO‚ğ‰º‚°‚é
+					//ï¿½gï¿½Xï¿½Ìƒtï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					if (toss_p_print == 1) {
 						if (time_count - toss_p_time >= 4) {
 							toss_p = 0;
@@ -1298,7 +1297,7 @@ int main(void) {
 						}
 					}
 
-					//ƒXƒpƒCƒN‚Ìƒtƒ‰ƒO‚ğ‰º‚°‚é
+					//ï¿½Xï¿½pï¿½Cï¿½Nï¿½Ìƒtï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					if (spaik == 1) {
 						if (time_count - spaik_time >= 4)
 							spaik = 0;
@@ -1319,7 +1318,7 @@ int main(void) {
 
 				}
 
-				//ƒŠƒvƒŒƒC
+				//ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C
 				if (rep == 1) {
 					if (time_count - 50 <= 0)
 						rep_start = 0;
@@ -1327,25 +1326,25 @@ int main(void) {
 						rep_start = time_count - 50;
 					for (j = rep_start; j < time_count; j++) {
 
-						//•\¦ŠJn
+						//ï¿½\ï¿½ï¿½ï¿½Jï¿½n
 						printf("\t\t\t\t\t\t    ");
 
-						printf("=======================ƒŠƒvƒŒƒC=======================\n");
-						//ƒ|ƒCƒ“ƒgEƒT[ƒuŒ EƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚Ì•\¦
+						printf("=======================ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½C=======================\n");
+						//ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Eï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½Eï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Ì•\ï¿½ï¿½
 						printf("\n\n\n\n\n\n");
 						printf("\t\t\t\t\t\t    ");
 						switch (surve_right_p) {
 						case 0:
-							printf("œ\n");
+							printf("ï¿½ï¿½\n");
 							break;
 						case 1:
-							printf("                                                   œ\n");
+							printf("                                                   ï¿½ï¿½\n");
 							break;
 						}
 						printf("\t\t\t\t\t\t    ");
-						printf("%s@@        @@     @@ @           @%s\n", name1, name2);
+						printf("%sï¿½@ï¿½@        ï¿½@ï¿½@     ï¿½@ï¿½@ ï¿½@           ï¿½@%s\n", name1, name2);
 						printf("\t\t\t\t\t\t    ");
-						printf("ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg\n");
+						printf("ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½g\n");
 						printf("\t\t\t\t\t\t    ");
 						if (sp_max == hist_sp_p[j]) {
 							if (hist_sp_do_p[j] == 0)
@@ -1356,12 +1355,12 @@ int main(void) {
 						else {
 							for (i = 0; i < 5; i++) {
 								if (i < hist_sp_p[j])
-									printf("¡");
+									printf("ï¿½ï¿½");
 								else
 									printf("  ");
 							}
 						}
-						printf("@@@@     @      @@@      ");
+						printf("ï¿½@ï¿½@ï¿½@ï¿½@     ï¿½@      ï¿½@ï¿½@ï¿½@      ");
 						if (sp_max == hist_sp_e[j]) {
 							if (hist_sp_do_e[j] == 0)
 								printf("!!!MAX!!! ");
@@ -1373,7 +1372,7 @@ int main(void) {
 								if (i >= hist_sp_e[j])
 									printf("  ");
 								else
-									printf("¡");
+									printf("ï¿½ï¿½");
 							}
 						}
 						printf("\n");
@@ -1381,7 +1380,7 @@ int main(void) {
 						if (hist_de_pri[j])
 							switch (hist_de_adv[j]) {
 							case 0:
-								printf("                      ƒfƒ…[ƒX                      \n");
+								printf("                      ï¿½fï¿½ï¿½ï¿½[ï¿½X                      \n");
 								break;
 							case 1:
 								printf("Adv.                      :                        %hd\n", hist_po_e[j]);
@@ -1393,19 +1392,19 @@ int main(void) {
 						else
 						    printf("%hd                         :                        %hd\n", hist_po_p[j], hist_po_e[j]);
 
-						//ƒXƒyƒVƒƒƒ‹ƒXƒpƒCƒN‚Ì•\¦
+						//ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½pï¿½Cï¿½Nï¿½Ì•\ï¿½ï¿½
 						switch (hist_sp_kind[j]) {
 						case 0:
 							printf("\n");
 							break;
 						case 1:
-							printf("\t\t\t\t\t\t                          ”š‘¬ -Œõ-\n");
+							printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 							break;
 						case 2:
-							printf("\t\t\t\t\t\t                          ¸–§ -—-\n");
+							printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 							break;
 						case 3:
-							printf("\t\t\t\t\t\t                          ˜— -•‘-\n");
+							printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 							break;
 						}
 
@@ -1413,63 +1412,63 @@ int main(void) {
 							printf("\t\t\t\t\t\t    ");
 							for (x = 0; x <= MAP_X; x++) {
 								if (x == hist_px[j] && y == hist_py[j] - 2)
-									printf("£");
+									printf("ï¿½ï¿½");
 								else if (x == hist_px[j] && y == hist_py[j] - 1)
-									printf("¡");
+									printf("ï¿½ï¿½");
 								else if (x == hist_px[j] && y == hist_py[j])
-									printf("”ª");
+									printf("ï¿½ï¿½");
 								else if (x == hist_bx[j] && y == hist_by[j])
-									printf("œ");
+									printf("ï¿½ï¿½");
 								else if (x == hist_px[j] && y == hist_py[j] - 3 && hist_toss_p[j] == 1)
 									printf("TT");
 								else if (x == hist_ex[j] && y == hist_ey[j] - 3 && hist_toss_e[j] == 1)
 									printf("TT");
 								else if (x == hist_px[j] && y == hist_py[j] - 3 && hist_spaik_p[j] == 1)
-									printf("u");
+									printf("ï¿½u");
 								else if (x == hist_ex[j] && y == hist_ey[j] - 3 && hist_spaik_e[j] == 1)
 									printf("] ");
 								else if (x == hist_ex[j] && y == hist_ey[j] - 2)
-									printf("›");
+									printf("ï¿½ï¿½");
 								else if (x == hist_ex[j] && y == hist_ey[j] - 1)
-									printf("¡");
+									printf("ï¿½ï¿½");
 								else if (x == hist_ex[j] && y == hist_ey[j])
-									printf("ƒ‹");
+									printf("ï¿½ï¿½");
 								else if (x == 13 && y >= 7 && y < 15)
-									printf(" ");
+									printf("ï¿½ï¿½");
 								else if (x > 1 && x < 25 && y == 15)
-									printf(" ");
+									printf("ï¿½ï¿½");
 								else
 									printf("  ");
 							}
 							printf("\n");
 						}
 
-						//À•W‚ğ•\¦
+						//ï¿½ï¿½ï¿½Wï¿½ï¿½\ï¿½ï¿½
 						printf("\t\t\t\t\t\t         ");
 						printf("(px,py) = (%d, %d)          (ex, ey) = (%d, %d)", px, py, ex, ey);
 
-						//‰æ–ÊÁ‹
+						//ï¿½ï¿½Êï¿½ï¿½ï¿½
 						system("cls");
 					}
 				}
 
-				//ÅŒã‚Ì•`‰æ
+				//ï¿½ÅŒï¿½Ì•`ï¿½ï¿½
 				if (rep == 1 && end != 0) {
-					//ƒ|ƒCƒ“ƒgEƒT[ƒuŒ EƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg‚Ì•\¦
+					//ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Eï¿½Tï¿½[ï¿½uï¿½ï¿½ï¿½Eï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Ì•\ï¿½ï¿½
 					printf("\n\n\n\n\n\n\n");
 					printf("\t\t\t\t\t\t    ");
 					switch (surve_right_p) {
 					case 0:
-						printf("œ\n");
+						printf("ï¿½ï¿½\n");
 						break;
 					case 1:
-						printf("                                                   œ\n");
+						printf("                                                   ï¿½ï¿½\n");
 						break;
 					}
 					printf("\t\t\t\t\t\t    ");
-					printf("%s@@        @@     @@ @           @%s\n", name1, name2);
+					printf("%sï¿½@ï¿½@        ï¿½@ï¿½@     ï¿½@ï¿½@ ï¿½@           ï¿½@%s\n", name1, name2);
 					printf("\t\t\t\t\t\t    ");
-					printf("ƒXƒyƒVƒƒƒ‹ƒJƒEƒ“ƒg\n");
+					printf("ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½g\n");
 					printf("\t\t\t\t\t\t    ");
 					if (sp_max == sp_p) {
 						if (sp_do_p == 0)
@@ -1480,12 +1479,12 @@ int main(void) {
 					else {
 						for (i = 0; i < 5; i++) {
 							if (i < sp_p)
-								printf("¡");
+								printf("ï¿½ï¿½");
 							else
 								printf("  ");
 						}
 					}
-					printf("@@@@     @      @@@      ");
+					printf("ï¿½@ï¿½@ï¿½@ï¿½@     ï¿½@      ï¿½@ï¿½@ï¿½@      ");
 					if (sp_max == sp_e) {
 						if (sp_do_e == 0)
 							printf("!!!MAX!!! ");
@@ -1497,26 +1496,26 @@ int main(void) {
 							if (i >= sp_e)
 								printf("  ");
 							else
-								printf("¡");
+								printf("ï¿½ï¿½");
 						}
 					}
 					printf("\n");
 					printf("\t\t\t\t\t\t    ");
 					printf("%hd                         :                        %hd\n", point_p, point_e);
 
-					//ƒXƒyƒVƒƒƒ‹ƒXƒpƒCƒN‚Ì•\¦
+					//ï¿½Xï¿½yï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½pï¿½Cï¿½Nï¿½Ì•\ï¿½ï¿½
 					switch (sp_kind) {
 					case 0:
 						printf("\n");
 						break;
 					case 1:
-						printf("\t\t\t\t\t\t                          ”š‘¬ -Œõ-\n");
+						printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 						break;
 					case 2:
-						printf("\t\t\t\t\t\t                          ¸–§ -—-\n");
+						printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 						break;
 					case 3:
-						printf("\t\t\t\t\t\t                          ˜— -•‘-\n");
+						printf("\t\t\t\t\t\t                          ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½-\n");
 						break;
 					}
 
@@ -1524,36 +1523,36 @@ int main(void) {
 						printf("\t\t\t\t\t\t    ");
 						for (x = 0; x <= MAP_X; x++) {
 							if (x == px && y == py - 2)
-								printf("£");
+								printf("ï¿½ï¿½");
 							else if (x == px && y == py - 1)
-								printf("¡");
+								printf("ï¿½ï¿½");
 							else if (x == px && y == py)
-								printf("”ª");
+								printf("ï¿½ï¿½");
 							else if (x == bx && y == by)
-								printf("œ");
+								printf("ï¿½ï¿½");
 							else if (x == px && y == py - 3 && toss_p == 1)
 								printf("TT");
 							else if (x == ex && y == ey - 3 && toss_e == 1)
 								printf("TT");
 							else if (x == px && y == py - 3 && spaik == 1)
-								printf("u");
+								printf("ï¿½u");
 							else if (x == ex && y == ey - 2)
-								printf("›");
+								printf("ï¿½ï¿½");
 							else if (x == ex && y == ey - 1)
-								printf("¡");
+								printf("ï¿½ï¿½");
 							else if (x == ex && y == ey)
-								printf("ƒ‹");
+								printf("ï¿½ï¿½");
 							else if (x == 13 && y >= 7 && y < 15)
-								printf(" ");
+								printf("ï¿½ï¿½");
 							else if (x > 1 && x < 25 && y == 15)
-								printf(" ");
+								printf("ï¿½ï¿½");
 							else
 								printf("  ");
 						}
 						printf("\n");
 					}
 
-					//À•W‚ğ•\¦
+					//ï¿½ï¿½ï¿½Wï¿½ï¿½\ï¿½ï¿½
 					printf("\t\t\t\t\t\t         ");
 					printf("(px,py) = (%d, %d)          (ex, ey) = (%d, %d)", px, py, ex, ey);
 				}
@@ -1586,7 +1585,7 @@ int main(void) {
 
 			system("cls");
 
-			//‘±‚¯‚é or I—¹
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ or ï¿½Iï¿½ï¿½
 			while (1) {
 				if (_kbhit()) {
 					key = _getch();
@@ -1607,10 +1606,10 @@ int main(void) {
 
 				switch (con_fin) {
 				case 0:
-					printf("New Game            finish");
+					printf("ï¿½ï¿½New Game            finish");
 					break;
 				case 1:
-					printf("  New Game          finish");
+					printf("  New Game          ï¿½ï¿½finish");
 					break;
 				}
 				system("cls");
@@ -1634,14 +1633,14 @@ int main(void) {
 int ran(short int x, short int y) {
 	short int diff, num;
 
-	//·‚ğ‹‚ß‚é
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 	diff = abs(x - y);
 
-    //—”‚É‚æ‚è’l‚ğŒˆ’è
+    //ï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	srand((unsigned int)time(NULL));
 	num = rand() % diff;
 
-	//•Ô‚µ‚½‚¢’l‚É“KØ‚É‚È‚é‚æ‚¤‚É
+	//ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½É“Kï¿½Ø‚É‚È‚ï¿½æ‚¤ï¿½ï¿½
 	if (x > y)
 		num += y;
 	else
