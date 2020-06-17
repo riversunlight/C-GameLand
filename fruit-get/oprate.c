@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include "ranking.h"
 #define ENTER 13
 
 void rule(void) {
 	int key = 0;
+	system("cls");
 	printf("============================RULE===========================\n");
 	printf("1.落ちてくる果物を取って得点ゲット!減点されるものもあるので注意!\n");
 	printf("2,みかん(〇) 10点 リンゴ(●) 20点  パイナップル(■)30点 スイカ(☆) 40点\n");
@@ -99,10 +101,13 @@ int opening(int cho) {
 
 	do {
 		while (flag) {
+			system("cls");
 			printf("==========果物集めゲーム==========\n");
 			printf("%sSTART\n", (op == 0) ? "        ◎" : "          ");
 			printf("%sOPTION\n", (op == 1) ? "        ◎" : "          ");
-			printf("%sRULE\n", (op == 2) ? "        ◎" : "          ");
+			printf("%sRANKING\n", (op == 2) ? "        ◎" : "          ");
+			printf("%sRULE\n", (op == 3) ? "        ◎" : "          ");
+			printf("%sEND\n", (op == 4) ? "        ◎" : "          ");
 			if (_kbhit()) {
 				key = _getch();
 				switch (key) {
@@ -118,29 +123,41 @@ int opening(int cho) {
 					flag = 0;
 					break;
 				}
-				op = (op + 3) % 3;
+				op = (op + 5) % 5;
 			}
-			system("cls");
 		}
+		system("cls");
 		switch (op) {
 		case 1:
 			num = option();
 			flag = 1;
 			break;
 		case 2:
+			rank_show();
+			flag = 1;
+			break;
+		case 3:
 			rule();
 			flag = 1;
 			break;
+		case 4:
+			num = -1;
+			break;
 		}
-	} while (op == 2);
+	} while (op == 2 || op == 3);
 
 	return num;
 }
 
-int ending(int op) {
+int ending(int op, int rank) {
 	int flag = 1;
 	int key;
 	while (1) {
+			printf("RANK IN: %d RANK", rank + 1);
+			for (int j = 4; j > rank; j--)
+				printf("!");
+			printf("\n");
+
 		printf("%snew game\n", (op == 0) ? "◎" : "  ");
 		printf("%send\n", (op == 1) ? "◎" : "  ");
 		system("cls");
