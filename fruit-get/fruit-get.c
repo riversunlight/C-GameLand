@@ -20,6 +20,9 @@ int main(void) {
 	int open;
 	int op_flag = 0;
 
+	//スコアの読み込み
+	rank_read();
+
 	/*すべてのループ*/
 	do {
 		flag = 0;
