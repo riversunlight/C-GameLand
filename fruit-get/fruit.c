@@ -47,6 +47,7 @@ int fruit_get(int score, int x) {
 				score -= 10;
 				break;
 			}
+		kudamono[i][14] = EMPTY;
 	}
 	return score;
 }
