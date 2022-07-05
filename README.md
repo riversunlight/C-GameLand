@@ -1,5 +1,5 @@
-# C-GameLandByRSL
-RSL(riversunlight)が制作したC言語のみで作ったゲームです  
+# C-GameLand
+制作したC言語のみで作ったゲームです  
 クオリティは高くないが興味があったらプレイしてみてください
 
 ### vally-ball
